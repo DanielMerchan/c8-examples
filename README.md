@@ -1,2 +1,2 @@
-# c8-examples
-Camunda 8 - Examples
+# Camunda 8 Examples
+Examples about Camunda 8 (Coming soon...)
