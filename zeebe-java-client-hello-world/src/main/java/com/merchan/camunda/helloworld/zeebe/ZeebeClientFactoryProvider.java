@@ -8,7 +8,7 @@ public final class ZeebeClientFactoryProvider {
 
         if ("local".equalsIgnoreCase(environment)) {
             return new LocalZeebeClient();
-        } else if ("saas".equalsIgnoreCase(environment)) {
+        } else if ("remote".equalsIgnoreCase(environment)) {
             return new RemoteZeebeClient();
         } else {
             throw new IllegalStateException("Unknown environment: " + environment);

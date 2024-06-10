@@ -1,18 +1,28 @@
 package com.merchan.camunda.helloworld.zeebe;
 
-import io.camunda.zeebe.client.CredentialsProvider;
+import com.merchan.camunda.helloworld.config.HelloWorldProperties;
 import io.camunda.zeebe.client.ZeebeClient;
-import io.camunda.zeebe.client.impl.NoopCredentialsProvider;
 
 import java.net.URI;
 
-public class LocalZeebeClient implements ZeebeClientFactory {
+/**
+ * Local ZeebeClient used for local development environment using Local Kubernetes Cluster or Docker Compose
+ * @author dmerchang
+ */
+public final class LocalZeebeClient implements ZeebeClientFactory {
+
+    private static final String ZEEBE_GRPC = HelloWorldProperties.getProperty("zeebe.client.broker.grpcAddress");
+    private static final String ZEEBE_REST = HelloWorldProperties.getProperty("zeebe.client.broker.restAddress");
+
+    public LocalZeebeClient() {
+    }
 
     @Override
     public ZeebeClient create() {
         return ZeebeClient.newClientBuilder()
-                .grpcAddress(URI.create("http://zeebe.camunda.local:26500"))
-                .restAddress(URI.create("http://camunda.local"))
+                .grpcAddress(URI.create(ZEEBE_GRPC))
+                .restAddress(URI.create(ZEEBE_REST))
+                .usePlaintext()
                 .credentialsProvider(new LocalCredentialsProvider())
                 .build();
     }
