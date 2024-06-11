@@ -1,17 +1,23 @@
 # Camunda 8 Examples
 This repository contains multiple projects for learning or solving different use cases you may encounter with Camunda 8
 
-## How to test the projects locally
-For the shake of simplicity, the majority of the projects are developed against a local development environment of Camunda 8 
+## Camunda 8 SaaS or Local Environment
+If you have a SaaS (non-trial), SaaS (trial with expiration) you will be able to execute every project by just updating the Zeebe client configuration in `application.properties` or `application.yaml`
 
-You can easily se tup this by following any of the following options:
+If you do not have any of these environments you can start a local one by following:
 - [**Docker Compose**](https://docs.camunda.io/docs/self-managed/setup/deploy/local/docker-compose/): This will easily up the Camunda 8 services you need for development
 - [**Local Kubernetes Cluster**](https://docs.camunda.io/docs/self-managed/setup/deploy/local/local-kubernetes-cluster/): It is a setup more close to a real Camunda 8 Self-Managed / SaaS environment
 
-Use the one you prefer, in my case I use **Local Kubernetes Cluster**
-**IMPORTANT:** By default, the local development Zeebe does not enforce security and you can invoke it without sending any credentials.
+If you decide to go over **Local Kubernetes Cluster** with **Ingress Nginx Controller** the setup requires extra steps:
+- Configure a TLS/SSL connection to the Nginx Controller using certificates (properly specified in Camunda 8 blog below)
+- Import those certificates into your Java JDK in use (specified in my blog a the bottom)
 
-## How to test the projects in Camunda SaaS or Self-Managed with Identity 
-SaaS and proper Self-Managed set up will require that your **Zeebe Client** provides some security context to authenticate and get authorize.
+You can follow for the above setup:
+- [Official Blog Camunda Self-Managed for Absolute Beginners](https://camunda.com/blog/2023/10/camunda-self-managed-for-absolute-beginners/)
+- [Camunda 8 Self-Managed Local Environment](https://magicpigeoncodecove.blogspot.com/2024/06/camunda-8-local-environment.html)
 
-The projects contains a section that you can uncomment and then set your Zeebe credentials in that case.
+## How to test the projects locally
+
+Most of the projects will deploy and execute instances of the processes to test. 
+
+However, in some I will add some JUnit tests.
