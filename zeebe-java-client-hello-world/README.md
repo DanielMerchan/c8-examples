@@ -27,4 +27,21 @@ The example contains the following artifacts:
 Check the console log and the process in `Camunda Desktop Modeler` for further understanding on what is happening
 
 ## Unit Testing
-TBA
+You can execute `HelloWorldApplicationtest.java` for testing the process.
+
+The current setup is Java JDK 21+ importing in `pom.xml`:
+
+```xml
+<dependency>   
+    <groupId>io.camunda</groupId>
+    <artifactId>zeebe-process-test-extension</artifactId>
+    <version>${zeebe.version}</version>
+    <scope>test</scope>
+</dependency>
+```
+
+Using
+```java
+import io.camunda.zeebe.process.test.extension.ZeebeProcessTest;
+```
+If you are using a lower JDK version then use the alternative you will find commented in the `java` and `pom.xml`
