@@ -14,7 +14,7 @@
     <version>1.0.0</version>
 
     <properties>
-        <main.class>com.merchan.camunda.example.</main.class>
+        <main.class>com.merchan.camunda.example.HelloWorldApplication</main.class>
     </properties>
 
     <dependencies>
