@@ -9,11 +9,17 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>zeebe-java-client-hello-world</module>
+    </modules>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <zeebe.version>8.5.2</zeebe.version>
         <log4j.version>2.19.0</log4j.version>
         <zeebe-version>8.5.0</zeebe-version>
+        <mockito-core-version>5.4.0</mockito-core-version>
     </properties>
 </project>

@@ -14,7 +14,7 @@
     <version>1.0.0</version>
 
     <properties>
-        <main.class></main.class>
+        <main.class>com.merchan.camunda.example.</main.class>
     </properties>
 
     <dependencies>
@@ -40,6 +40,34 @@
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>${log4j.version}</version>
         </dependency>
+        <!-- Testing -->
+        <!-- No Services invoked to mock -->
+<!--        <dependency>-->
+<!--            <groupId>org.mockito</groupId>-->
+<!--            <artifactId>mockito-core</artifactId>-->
+<!--            <version>${mockito-core-version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.1</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Only for JDK+21 -->
+        <dependency>
+            <groupId>io.camunda</groupId>
+            <artifactId>zeebe-process-test-extension</artifactId>
+            <version>${zeebe.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Only JDK+8 -->
+<!--        <dependency>-->
+<!--            <groupId>io.camunda</groupId>-->
+<!--            <artifactId>zeebe-process-test-extension-testcontainer</artifactId>-->
+<!--            <version>${zeebe.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -54,6 +82,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
