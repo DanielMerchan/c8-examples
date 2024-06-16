@@ -2,21 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!--The identifier of the parent POM-->
-    <parent>
-        <groupId>com.merchan.camunda</groupId>
-        <artifactId>c8-examples</artifactId>
-        <version>1.0.0</version>
-    </parent>
-
     <modelVersion>4.0.0</modelVersion>
     <artifactId>zeebe-java-client-hello-world</artifactId>
     <version>1.0.0</version>
-
     <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <zeebe.version>8.5.2</zeebe.version>
+        <log4j.version>2.19.0</log4j.version>
+        <mockito-core-version>5.4.0</mockito-core-version>
         <main.class>com.merchan.camunda.example.HelloWorldApplication</main.class>
     </properties>
-
     <dependencies>
         <!-- Zeebe Client -->
         <dependency>
