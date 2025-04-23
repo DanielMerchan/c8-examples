@@ -3,13 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.merchan.camunda</groupId>
     <artifactId>zeebe-java-client-hello-world</artifactId>
     <version>1.0.0</version>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <zeebe.version>8.5.2</zeebe.version>
+        <zeebe.version>8.6.13</zeebe.version>
         <log4j.version>2.19.0</log4j.version>
         <mockito-core-version>5.4.0</mockito-core-version>
         <main.class>com.merchan.camunda.example.HelloWorldApplication</main.class>
@@ -55,7 +56,7 @@
         <dependency>
             <groupId>io.camunda</groupId>
             <artifactId>zeebe-process-test-extension</artifactId>
-            <version>${zeebe.version}</version>
+            <version>8.5.2</version>
             <scope>test</scope>
         </dependency>
         <!-- Only JDK+8 -->

@@ -20,10 +20,9 @@ public final class SayHelloHandler implements JobHandler {
      * Handles the job sayHello
      * @param client - JobClient for sending a command to Zeebe about the job result
      * @param job - Contains the activated job information along with the variables
-     * @throws Exception
      */
     @Override
-    public void handle(JobClient client, ActivatedJob job) throws Exception {
+    public void handle(JobClient client, ActivatedJob job){
         final String name = (String) job.getVariablesAsMap().get("name");
         LOG.info("Saying hello '{}'", name);
         client.newCompleteCommand(job.getKey()).send()

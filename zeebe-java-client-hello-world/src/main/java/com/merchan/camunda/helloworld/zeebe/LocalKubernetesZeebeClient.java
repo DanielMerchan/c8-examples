@@ -9,12 +9,12 @@ import java.net.URI;
  * Local ZeebeClient used for local development environment using Local Kubernetes Cluster or Docker Compose
  * @author dmerchang
  */
-public final class LocalZeebeClient implements ZeebeClientFactory {
+public final class LocalKubernetesZeebeClient implements ZeebeClientFactory {
 
     private static final String ZEEBE_GRPC = HelloWorldProperties.getProperty("zeebe.client.broker.grpcAddress");
     private static final String ZEEBE_REST = HelloWorldProperties.getProperty("zeebe.client.broker.restAddress");
 
-    public LocalZeebeClient() {
+    public LocalKubernetesZeebeClient() {
     }
 
     @Override
@@ -23,7 +23,7 @@ public final class LocalZeebeClient implements ZeebeClientFactory {
                 .grpcAddress(URI.create(ZEEBE_GRPC))
                 .restAddress(URI.create(ZEEBE_REST))
                 .usePlaintext()
-                .credentialsProvider(new LocalCredentialsProvider())
+                .credentialsProvider(new LocalKubernetesCredentialsProvider())
                 .build();
     }
 }

@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.MessageFormat;
 import java.util.Properties;
 
 public class HelloWorldProperties {
@@ -16,37 +15,44 @@ public class HelloWorldProperties {
 
     // Static block to load the properties file once when the class is loaded
     static {
-        try (InputStream input = HelloWorldProperties.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE)) {
-            if (input == null) {
-                throw new RuntimeException(MessageFormat.format("Properties file {0} not found in the classpath", PROPERTIES));
-            }
-            // Load the properties from the input stream
-            PROPERTIES.load(input);
-        } catch (IOException ex) {
-            throw new RuntimeException("Failed to load properties file", ex);
-        }
+        reloadProperties();
     }
 
-    // Method to get a property value by key
+    /**
+     * Get a particular property from the loaded properties file
+     * @param key - Key of the property
+     * @return String - Null if the property is not found
+     */
     public static String getProperty(String key) {
         return PROPERTIES.getProperty(key);
     }
 
-    // Method to get a property value by key with a default value
+    /**
+     * Get a particular property from the loaded properties file
+     * @param key - Key of the property
+     * @param defaultValue - Default value in the case of the property is not found
+     * @return String
+     */
     public static String getProperty(String key, String defaultValue) {
         return PROPERTIES.getProperty(key, defaultValue);
     }
 
-    // Method to reload the properties file if needed
+    /**
+     * Reload the properties
+     */
     public static void reloadProperties() {
         try (InputStream input = HelloWorldProperties.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE)) {
             if (input == null) {
-                throw new RuntimeException(MessageFormat.format("Properties file {0} not found in the classpath", PROPERTIES));
+                var message = String.format("Properties file %s not found", PROPERTIES_FILE);
+                LOG.error(message);
+                throw new RuntimeException(message);
             }
-            PROPERTIES.clear();
+            // Load the properties from the input stream
             PROPERTIES.load(input);
         } catch (IOException ex) {
-            throw new RuntimeException("Failed to reload properties file", ex);
+            var message = "Failed to load properties file: " + PROPERTIES_FILE;
+            LOG.error(message, ex);
+            throw new RuntimeException("Failed to load properties file", ex);
         }
     }
 }
