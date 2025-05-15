@@ -13,6 +13,9 @@ import java.net.URI;
  */
 public final class RemoteZeebeClient implements ZeebeClientFactory {
 
+    /**
+     * Attributes to obtain the necessary values for establishing the Zeebe Client
+     */
     private static final String ZEEBE_GRPC = HelloWorldProperties.getProperty("zeebe.client.broker.grpcAddress");
     private static final String ZEEBE_REST = HelloWorldProperties.getProperty("zeebe.client.broker.restAddress");
     private static final String AUDIENCE = HelloWorldProperties.getProperty("zeebe.client.audience");

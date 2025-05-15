@@ -12,11 +12,22 @@ import java.util.Optional;
 
 import static java.net.http.HttpClient.newHttpClient;
 
-public class C8RunLocalZeebeClient implements ZeebeClientFactory {
+/**
+ * Zeebe Client for C8Run local instances
+ * @author dmerchang
+ */
+public final class C8RunLocalZeebeClient implements ZeebeClientFactory {
 
+    /**
+     * Default constructor
+     */
     public C8RunLocalZeebeClient() {
     }
 
+    /**
+     * Create a Zeebe Client for C8Run
+     * @return ZeebeClient
+     */
     @Override
     public ZeebeClient create() {
         final Optional<String> OPERATE_SESSION_ID = C8SessionCookieFetcher.fetchSessionCookie();
@@ -33,6 +44,9 @@ public class C8RunLocalZeebeClient implements ZeebeClientFactory {
         return zeebeClientBuilder.build();
     }
 
+    /**
+     * Aux method to retrieve the cookie from the authenticated session
+     */
     private static class C8SessionCookieFetcher {
         public static Optional<String> fetchSessionCookie() {
             try (HttpClient httpClient = newHttpClient()) {
