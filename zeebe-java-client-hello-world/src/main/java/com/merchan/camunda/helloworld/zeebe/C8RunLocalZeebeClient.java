@@ -13,7 +13,7 @@ import java.util.Optional;
 import static java.net.http.HttpClient.newHttpClient;
 
 /**
- * Zeebe Client for C8Run local instances
+ * Zeebe Client for using while coding for C8Run instances
  * @author dmerchang
  */
 public final class C8RunLocalZeebeClient implements ZeebeClientFactory {

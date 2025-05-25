@@ -38,7 +38,7 @@ public class HelloWorldSpringApplication implements CommandLineRunner {
                 .variables(Map.of("name", "Daniel Goose"))
                 .send()
                 .join();
-        LOG.info(String.format("started a process: %d", event.getProcessInstanceKey()));
+        LOG.info("started a process: {}", event.getProcessInstanceKey());
     }
 
     private static void printBrokerInfo(final ZeebeClient zeebeClient) {

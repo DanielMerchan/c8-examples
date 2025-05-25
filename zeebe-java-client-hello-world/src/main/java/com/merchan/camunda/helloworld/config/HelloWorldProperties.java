@@ -7,13 +7,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class HelloWorldProperties {
+/**
+ * Custom Class for handling the application.properties as it is a pure Java Project
+ * @author dmerchang
+ */
+public final class HelloWorldProperties {
 
     private static final Properties PROPERTIES = new Properties();
     private static final String PROPERTIES_FILE = "application.properties";
     private static final Logger LOG = LogManager.getLogger(HelloWorldProperties.class);
 
-    // Static block to load the properties file once when the class is loaded
+    // Static block to load the properties file once when the class is loaded by the class loader
     static {
         reloadProperties();
     }

@@ -10,7 +10,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <zeebe.version>8.6.13</zeebe.version>
+        <zeebe.version>8.7.2</zeebe.version>
         <log4j.version>2.19.0</log4j.version>
         <mockito-core-version>5.4.0</mockito-core-version>
         <main.class>com.merchan.camunda.example.HelloWorldApplication</main.class>
@@ -56,7 +56,7 @@
         <dependency>
             <groupId>io.camunda</groupId>
             <artifactId>zeebe-process-test-extension</artifactId>
-            <version>8.5.2</version>
+            <version>${zeebe.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- Only JDK+8 -->

@@ -5,7 +5,10 @@ This is a simple project which uses the supported official [Camunda - Java Clien
 ## Project structure and explanation
 The example contains the following artifacts:
 - **resources**
-  - `application.properties` for configuring the Zeebe Client. Use **local** or **remote** settings depending on your Camunda 8 environment. (Comment / Uncomment them).
+  - `application.properties` for configuring the Zeebe Client. You can configure it depending on your local environment setup (or SaaS):
+    - `c8run`: Use this if you are using [C8 Run](https://docs.camunda.io/docs/self-managed/setup/deploy/local/c8run/) for development
+    - `local-kubernetes`: Use this if you are using [Local Kubernetes Cluster](https://docs.camunda.io/docs/self-managed/setup/deploy/local/local-kubernetes-cluster/)
+    - `remote`: Ue this if you are using a SaaS instance of Camunda 8 [C8 Java Client - SaaS](https://docs.camunda.io/docs/apis-tools/java-client)
   - `hello-world.bpmn`: Contains the basic Hello World process which politely will say `Hello` to whoever starts the process (sending the appropriate name) in the Log.
   - `log4j2.xml`: Using Apache LOG4J config for controlling the logging output 
 - **src/main/java/com/merchan/camunda/helloworld**

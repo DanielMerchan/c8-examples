@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Main class
+ * Hello World main class
  * @author dmerchang
  */
 public final class HelloWorldApplication {
